@@ -29,6 +29,7 @@ public class ProductCartService {
 		return dao.selectCarts(uid);
 	}
 	public void updateCart() {}
+	
 	public int deleteCart(int[] cartIds) {
 		return dao.deleteCart(cartIds);
 	}

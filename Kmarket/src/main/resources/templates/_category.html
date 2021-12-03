@@ -4,7 +4,7 @@
 		var category = $('.category');
 		
 		// 카테고리 요청하기
-		$.get('/getCategories', function(data){
+		$.get('/Kmarket/getCategories', function(data){
 			
 			// 1차 카테고리 생성
 			$.each(data, function(i, catesVo){
@@ -29,7 +29,7 @@
 				
 				// 2차 카테고리 생성
 				$.each(catesVo.cate2List, function(j, cate2Vo){				
-					var url = "/product/list?cate1="+cate2Vo.cate1+"&cate2="+cate2Vo.cate2;					
+					var url = "/Kmarket/product/list?cate1="+cate2Vo.cate1+"&cate2="+cate2Vo.cate2;					
 					$('.cate2s').eq(i).append("<li><a href='"+url+"'>"+cate2Vo.title+"</a></li>");										
 				});
 			});

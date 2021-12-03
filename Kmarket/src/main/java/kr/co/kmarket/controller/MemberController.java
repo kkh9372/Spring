@@ -19,7 +19,6 @@ import kr.co.kmarket.vo.MemberVo;
 @Controller
 public class MemberController {
 	
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired
 	private MemberService service;
@@ -27,14 +26,12 @@ public class MemberController {
 
 	@GetMapping("/member/join")
 	public String join() {
-		logger.info("join...");		
 		return "/member/join";
 	}
 	
 	@GetMapping("/member/login")
 	public String login(String productCode, String success, Model model) {
 		
-		logger.info("get-login...");
 		model.addAttribute("productCode", productCode);
 		model.addAttribute("success", success);
 		return "/member/login";
@@ -42,12 +39,10 @@ public class MemberController {
 		
 	@PostMapping("/member/login")
 	public String login(MemberVo vo, HttpSession sess) {
-		logger.info("post-login...");
 		
 		MemberVo memberVo = service.selectMember(vo);
 		
 		if(memberVo != null) {
-			logger.info("post-login1...");
 			
 			sess.setAttribute("sessMember", memberVo);
 			
@@ -57,29 +52,25 @@ public class MemberController {
 				return "redirect:/";	
 			}
 		}else {
-			logger.info("post-login2...");
-			return "redirect:/member/login?success=100";
+			return "redirect:/member/login?success=101";
 		}
 	}
 	
 	@GetMapping("/member/logout")
 	public String logout(HttpSession sess) {
 		
-		logger.info("logout...");
 		sess.invalidate();
-		return "redirect:/";
+		return "redirect:/member/login?success=102";
 	}
 	
 	@GetMapping("/member/register")
 	public String register() {
-		logger.info("get-register...");
 		return "/member/register";
 	}
 	
 	@PostMapping("/member/register")
 	public String register(HttpServletRequest req, MemberVo vo) {
 		
-		logger.info("post-register...");
 		String ip = req.getRemoteAddr();
 		vo.setIp(ip);
 		
@@ -105,10 +96,10 @@ public class MemberController {
 	@GetMapping("/member/signup")
 	public String signup(Model model, int type) {
 		
-		MemberTermsVo vo = service.selectTerms();	
+		MemberTermsVo termsVo = service.selectTerms();	
 		
-		model.addAttribute(vo);
-		model.addAttribute("type", type);
+		model.addAttribute(termsVo);
+		model.addAttribute("type",type);
 		
 		return "/member/signup";
 	}

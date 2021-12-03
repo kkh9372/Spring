@@ -36,12 +36,12 @@ public class ProductService {
 	public void updateProducts() {}
 	public void deleteProducts() {}
 	
-	// 페이지 리스트 시작번호
+	// 각 페이지마다 시작하는 데이터 번호
 	public int getPageStartNum(int total, int start) {
-		return total -start;
+		return (total -start)+1;
 	}
 	
-	// 페이지 현재 그룹번호
+	// 페이지를 그룹으로 10개씩 묶기 위한 메서드
 	public int[] getPageGroup(int currentPage, int lastPageNum) {
 		
 		int groupCurrent = (int)Math.ceil(currentPage / 10.0);

@@ -12,7 +12,8 @@ import lombok.Data;
 public class MemberTermsVo {
 	
 	@Id
-	private int terms;
+	private int seq;
+	private String terms;
 	private String privacy;
 	private String location;
 	private String finance;

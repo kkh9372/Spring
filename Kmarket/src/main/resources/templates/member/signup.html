@@ -43,19 +43,18 @@
     				//location.href = '/member/register';
     				
     				// 자바스크립트 이동함수(히스토리 기록안됨)
-    				location.replace('/member/register');
+    				location.replace('/Kmarket/member/register');
     			}else{    				
     				//location.href = '/member/register-seller';
-    				location.replace('/member/register-seller');
+    				location.replace('/Kmarket/member/register-seller');
     			}
     		});
     	});
     </script>
-    
 </head>
 <body>
     <div id="member-wrapper">
-        <th:block th:include="@{/member/_header.html}"/>
+        <th:block th:include="@{member/_header.html}"></th:block>
         <main>
             <div id="member-signup">
 				<h1>약관동의</h1>
@@ -90,7 +89,7 @@
 				</div>
             </div>
         </main>
-        <th:block th:include="@{/member/_footer.html}"/>
+        <th:block th:include="@{member/_footer.html}"></th:block>
     </div>
 </body>
 </html>

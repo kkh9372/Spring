@@ -40,4 +40,13 @@
 	</select>
 	<update id="updateMember"></update>
 	<delete id="deleteMember"></delete>
+	<select id="selectCountUid" resultType="int">
+		SELECT COUNT(`uid`) FROM `km_member` WHERE `uid`=#{uid};
+	</select>
+	<select id="selectCountEmail" resultType="int">
+		SELECT COUNT(`email`) FROM `km_member` WHERE `email`=#{email};
+	</select>
+	<select id="selectCountHp" resultType="int">
+		SELECT COUNT(`hp`) FROM `km_member` WHERE `hp`=#{hp};
+	</select>
 </mapper>

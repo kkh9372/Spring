@@ -4,24 +4,27 @@
     <meta charset="UTF-8">
     <title>케이마켓::로그인</title>
     <link rel="stylesheet" th:href="@{/css/member.css}">
-    <script type="text/javascript" th:inline="javascript">
+    <script th:inline="javascript">
     	var success = [[${success}]];
     	
     	if(success == '101'){
-    		alert('비밀번호가 일치하지 않습니다.');
-    	}else if(success == '201'){
-    		alert('장바구니를 확인하시려면 로그인을 하셔야 합니다.');
-    	}
+			alert('아이디와 비밀번호를 다시 확인해주세요.');
+		}else if(success == '102'){
+			alert('정상적으로 로그아웃에 성공하셨습니다.');
+		}
+		else if(success == '201'){
+			alert('장바구니를 확인하시려면 로그인을 하셔야합니다.');
+		}
     </script>
     
 </head>
 <body>
     <div id="member-wrapper">
-        <th:block th:include="@{/member/_header.html}"/>
+        <th:block th:include="@{member/_header.html}"/></th:block>
         <main>
             <div id="member-login">
                 <img th:src="@{/img/member_txt_login.gif}" alt="로그인" />
-				<form th:action="@{/member/login}" method="post">
+				<form th:action="@{login}" method="post">
 					<input type="hidden" name="productCode" th:if="${productCode}" th:value="${productCode}" />
 					<div>
 						<label>
@@ -37,13 +40,13 @@
 					<span>
 						<a href="#">아이디찾기</a>
 						<a href="#">비밀번호찾기</a>
-						<a th:href="@{/member/join}">회원가입</a>
+						<a th:href="@{join}">회원가입</a>
 					</span>
 				</form>
 				<img th:src="@{/img/member_certifi_logo.gif}" alt="banner">
             </div>
         </main>        
-        <th:block th:include="@{/member/_footer.html}"/>
+        <th:block th:include="@{member/_footer.html}"/></th:block>
     </div>    
 </body>
 </html>

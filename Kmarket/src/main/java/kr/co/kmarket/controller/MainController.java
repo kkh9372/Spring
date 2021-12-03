@@ -17,15 +17,12 @@ import kr.co.kmarket.vo.ProductVo;
 @Controller
 public class MainController {
 	
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired
 	private MainService service;
 	
 	@GetMapping(value = {"/", "/index"})
 	public String index(Model model) {
-		
-		logger.info("MainController - index");
 		
 		// 메인상품 조회
 		List<ProductVo> productsHit       = service.selectMainProduct("hit");		
@@ -47,7 +44,6 @@ public class MainController {
 	@ResponseBody
 	@GetMapping("/getCategories")
 	public List<CategoriesVo> getCategories() {
-		logger.info("MainController - getCategories");
 		
 		List<CategoriesVo> cates = service.selectCategories();
 		return cates;
@@ -56,7 +52,6 @@ public class MainController {
 	@ResponseBody
 	@GetMapping("/getMainProduct")
 	public List<ProductVo> getMainProduct(String order) {
-		logger.info("MainController - getMainProduct");
 		
 		List<ProductVo> products = service.selectMainProduct(order);
 		return products;
