@@ -9,7 +9,7 @@
 
 # Farmstory
 >스프링 기반 웹페이지 구현
-> http://13.125.183.58:8080/Farmstory1/
+> http://13.125.183.58:8080/Farmstory/
  
 # Kmarket
 >스프링 기반 온라인 쇼핑몰 구현
